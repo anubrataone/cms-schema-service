@@ -1,0 +1,95 @@
+{
+  "BPURN": {
+    "type": "SingleLineText",
+    "defaultValue": "BPVODTitleV1"
+  },
+  "BPName": {
+    "type": "SingleLineText",
+    "defaultValue": "BPVODTitle"
+  },
+  "bpVersion": {
+    "type": "SingleLineNumber",
+    "defaultValue": "1"
+  },
+  "name": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "urn": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "status": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "externalId": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "entityType": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "providerName": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "episode_num": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "seriesName": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "seasonName": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "seasonURN": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "seriesURN": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "titleInfo": {
+    "type": "AttrLocalizedData",
+    "occurance": "multiple"
+  },
+  "titleAssetId": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "packageAssetId": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "assetName": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "availibility": {
+    "type": "AttrEntitlement",
+    "occurance": "multiple"
+  },
+  "releaseYear": {
+    "type": "SingleLineText",
+    "occurance": "single"
+  },
+  "genres": {
+    "type": "SingleLineText",
+    "occurance": "multiple"
+  },
+  "categories": {
+    "type": "SingleLineText",
+    "occurance": "multiple"
+  },
+  "ratings": {
+    "type": "SingleLineText",
+    "occurance": "multiple"
+  }
+  
+}

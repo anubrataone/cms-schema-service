@@ -1,0 +1,18 @@
+{
+  "attrName":  "AttrCatalogAvailibility",
+  "attrType": "Compound",
+  "attrClass":  "KVP",
+  "elements": {
+    "startDate": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurance": "single"
+      },
+      "endDate": {
+        "type": "SingleLineText",
+        "required": true,
+        "occurance": "single"
+      }
+    
+  }
+}
