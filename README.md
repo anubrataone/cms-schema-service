@@ -114,6 +114,35 @@ This service provides schema creation - management - validation service
 
 #####  POST CALLS
 
+
+
+/schema/attribute
+
+```
+- Method: POST
+- Request line:
+    
+    - Body
+        Content-type: application/json
+        Encoded as a JSON Object for the fields to be updated.
+
+    attrName is the identifier.
+    Code creates a new UUID for the inserted object.    
+
+    
+
+```
+
+| Field | Data Type | Description |
+| :---:   |   :---:   |   :---:              |
+| _id    | String | ObjectId	|
+| attrName    | String | 	|
+| attrType    | Integer | 	|
+| attrClass    | String | Concatenate (bpName,bpVersion)	|
+| elements    | JSON Object | optional free flow data	|
+
+
+
 /schema/
 
 ```
@@ -175,6 +204,7 @@ This can be full document replace or just set particular fields.
 | _id    | String | ObjectId	|
 | bpName    | String | {VODTitle / Series / Season / Provider/ Channel / Program / Schedule}	|
 | bpVersion    | Integer | 	|
+| data    | JSON Object | free flow JSON Data	|
 
 Rest JSON data are free flow for whole BP or just set of fields.
 
