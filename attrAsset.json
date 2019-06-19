@@ -5,7 +5,7 @@
   "elements": {
    "state": {
         "type": "SingleLineText",
-        "required": true,
+        "required": false,
         "occurance": "single"
       },
       "url": {
@@ -37,7 +37,7 @@
       "extendedParams":{
         "type": "AttrCustomParam",
         "required": false,
-        "occurance": "single"
+        "occurance": "multiple"
       }
     
   }

@@ -21,7 +21,7 @@
       "extendedParams":{
         "S": "AttrCustomParam",
         "required": false,
-        "occurance": "single"
+        "occurance": "multiple"
       }
     
   }

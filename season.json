@@ -1,17 +1,20 @@
 {
   "BPURN": {
     "type": "SingleLineText",
-    "defaultValue": "BPVODTitleV1",
+    "defaultValue": "SeasonV1",
+    "occurance": "single",
     "required": true
   },
   "BPName": {
     "type": "SingleLineText",
     "required": true,
-    "defaultValue": "BPVODTitle"
+    "occurance": "single",
+    "defaultValue": "Season"
   },
   "bpVersion": {
     "type": "SingleLineNumber",
     "required": true,
+    "occurance": "single",
     "defaultValue": "1"
   },
   "name": {
@@ -37,59 +40,23 @@
   "entityType": {
     "type": "SingleLineText",
     "required": true,
-    "occurance": "single"
+    "occurance": "single",
+    "defaultValue": "season"
   },
   "providerName": {
     "type": "AttrResourceRef",
     "required": false,
     "occurance": "single"
   },
-  "episode_num": {
-    "type": "SingleLineText",
-    "required": false,
-    "occurance": "single"
-  },
-  "seriesName": {
-    "type": "AttrResourceRef",
-    "required": false,
-    "occurance": "single"
-  },
-  "seasonName": {
-    "type": "AttrResourceRef",
-    "required": false,
-    "occurance": "single"
-  },
   "titleInfo": {
     "type": "AttrLocalizedData",
-    "occurance": "multiple"
-  },
-  "titleAssetId": {
-    "type": "SingleLineText",
-    "occurance": "single"
-  },
-  "packageAssetId": {
-    "type": "SingleLineText",
-    "occurance": "single"
-  },
-  "assetName": {
-    "type": "SingleLineText",
-    "occurance": "single"
+    "occurance": "multiple",
+    "required": true
   },
   "availibility": {
     "type": "AttrEntitlement",
-    "occurance": "multiple"
-  },
-  "releaseYear": {
-    "type": "SingleLineText",
-    "occurance": "single"
-  },
-  "genres": {
-    "type": "SingleLineText",
-    "occurance": "multiple"
-  },
-  "categories": {
-    "type": "SingleLineText",
-    "occurance": "multiple"
+    "occurance": "multiple",
+    "required": false
   },
   "ratings": {
     "type": "SingleLineText",
@@ -100,11 +67,6 @@
     "occurance": "multiple"
   },
   "image": {
-    "type": "AttrAsset",
-    "required": false,
-    "occurance": "multiple"
-  },
-  "streamURL": {
     "type": "AttrAsset",
     "required": false,
     "occurance": "multiple"
