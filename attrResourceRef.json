@@ -7,7 +7,12 @@
           "type": "SingleLineText",
           "required": true,
           "occurance": "single"
-      }
+      },
+      "collection": {
+        "type": "SingleLineText",
+        "required": true,
+        "occurance": "single"
+    }
     
   }
 }
