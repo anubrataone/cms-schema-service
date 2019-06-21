@@ -17,12 +17,14 @@
   "name": {
     "type": "SingleLineText",
     "required": true,
-    "occurance": "single"
+    "occurance": "single",
+    "primary-key": true
   },
   "urn": {
     "type": "SingleLineText",
     "required": true,
-    "occurance": "single"
+    "occurance": "single",
+    "primary-key": true
   },
   "status": {
     "type": "SingleLineText",
