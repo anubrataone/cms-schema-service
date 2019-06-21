@@ -1,13 +1,12 @@
 {
-  "attrName":  "AttrResourceRef",
-  "attrType":  "Compound",
-  "attrClass":  "Reference",
+  "attrName": "AttrResourceRef",
+  "attrType": "Compound",
+  "attrClass": "Reference",
   "elements": {
-        "id": {
-          "type": "SingleLineText",
-          "required": true,
-          "occurance": "single"
-      }
-    
+    "id": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single"
+    }
   }
 }

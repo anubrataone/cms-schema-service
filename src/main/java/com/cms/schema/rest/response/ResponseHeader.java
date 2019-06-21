@@ -21,6 +21,7 @@ public class ResponseHeader implements Serializable {
     private long systemTime;
     private int start;
     private long rows, count;
+    private List<ResponseError> errors;
 
     public int getStart() {
         return start;
@@ -45,8 +46,6 @@ public class ResponseHeader implements Serializable {
     public void setCount(long count) {
         this.count = count;
     }
-
-    private List<ResponseError> errors;
 
     public List<ResponseError> getErrors() {
         return errors;

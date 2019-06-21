@@ -34,6 +34,20 @@ public class AdminRestService {
         // needed for autowiring
     }
 
+    private static ResponseData createResponse(String message) {
+        ResponseData<CMSEntity> responseData = new ResponseData();
+        ResponseHeader responseHeader = new ResponseHeader();
+        responseHeader.setSource("cms-schema-service");
+        responseHeader.setSystemTime(System.currentTimeMillis());
+
+        responseHeader.setMessage(message);
+
+        responseHeader.setStart(0);
+        responseData.setHeader(responseHeader);
+
+        return responseData;
+    }
+
     private boolean validateInputParams(MultivaluedMap<String, String> requestInputs) {
         if (requestInputs == null || requestInputs.isEmpty()) {
             throw new IllegalArgumentException("Missing required parameter(s):");
@@ -70,7 +84,6 @@ public class AdminRestService {
             return responseData;
         }
     }
-
 
     @RequestMapping(value = "batchinsert", method = RequestMethod.POST)
     public ResponseData<List<CMSEntity>> createBatchEntity(@RequestBody List<CMSEntity> entities) {
@@ -194,7 +207,6 @@ public class AdminRestService {
         }
     }
 
-
     @RequestMapping(value = "/{entityType}/{id}", method = RequestMethod.GET)
     public ResponseData<CMSEntity> queryByTypeAndId(@PathVariable("entityType") String entityType,
                                                     @PathVariable("id") String id) {
@@ -225,7 +237,6 @@ public class AdminRestService {
         }
     }
 
-
     @RequestMapping(value = "/{entityType}", method = RequestMethod.GET)
     public ResponseData<List<CMSEntity>> queryByType(@PathVariable("entityType") String entityType) {
 
@@ -253,20 +264,6 @@ public class AdminRestService {
             ResponseData<List<CMSEntity>> responseData = createResponse("Failed: " + ExceptionUtils.getStackTrace(e));
             return responseData;
         }
-    }
-
-    private static ResponseData createResponse(String message) {
-        ResponseData<CMSEntity> responseData = new ResponseData();
-        ResponseHeader responseHeader = new ResponseHeader();
-        responseHeader.setSource("cms-schema-service");
-        responseHeader.setSystemTime(System.currentTimeMillis());
-
-        responseHeader.setMessage(message);
-
-        responseHeader.setStart(0);
-        responseData.setHeader(responseHeader);
-
-        return responseData;
     }
 
     @ExceptionHandler(IllegalArgumentException.class)

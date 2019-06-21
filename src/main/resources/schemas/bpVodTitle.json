@@ -13,83 +13,86 @@
   },
   "name": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "urn": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "status": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "externalId": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "entityType": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "providerName": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "episode_num": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "seriesName": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "seasonName": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "seasonURN": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "seriesURN": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "titleInfo": {
     "type": "AttrLocalizedData",
-    "occurance": "multiple"
+    "occurrence": "multiple"
   },
   "titleAssetId": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "packageAssetId": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "assetName": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "availibility": {
     "type": "AttrEntitlement",
-    "occurance": "multiple"
+    "occurrence": "multiple"
   },
   "releaseYear": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "genres": {
     "type": "SingleLineText",
-    "occurance": "multiple"
+    "occurrence": "multiple"
   },
   "categories": {
     "type": "SingleLineText",
-    "occurance": "multiple"
+    "occurrence": "multiple"
+  },
+  "numberTest": {
+    "type": "SingleLineNumber",
+    "occurrence": "single"
   },
   "ratings": {
     "type": "SingleLineText",
-    "occurance": "multiple"
+    "occurrence": "multiple"
   }
-  
 }

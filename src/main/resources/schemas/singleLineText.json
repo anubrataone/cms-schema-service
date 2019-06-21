@@ -1,6 +1,5 @@
 {
-  "attrName":  "SingleLineText",
-  "attrType":  "Native",
-  "attrClass":  "string"
-  
+  "attrName": "SingleLineText",
+  "attrType": "Native",
+  "attrClass": "string"
 }

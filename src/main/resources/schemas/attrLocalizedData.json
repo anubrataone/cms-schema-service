@@ -1,28 +1,27 @@
 {
-  "attrName":  "AttrLocalizedData",
+  "attrName": "AttrLocalizedData",
   "attrType": "Compound",
-  "attrClass":  "KVP",
+  "attrClass": "KVP",
   "elements": {
     "Title": {
       "type": "SingleLineText",
       "required": true,
-      "occurance": "single"
-      },
-      "Description": {
-        "type": "SingleLineText",
+      "occurrence": "single"
+    },
+    "Description": {
+      "type": "SingleLineText",
       "required": true,
-      "occurance": "single"
-      },
-      "locale": {
-        "type": "SingleLineText",
+      "occurrence": "single"
+    },
+    "locale": {
+      "type": "SingleLineText",
       "required": true,
-      "occurance": "single"
-      },
-      "extendedParams":{
-        "S": "AttrCustomParam",
-        "required": false,
-        "occurance": "single"
-      }
-    
+      "occurrence": "single"
+    },
+    "extendedParams": {
+      "S": "AttrCustomParam",
+      "required": false,
+      "occurrence": "single"
+    }
   }
 }

@@ -10,7 +10,7 @@ public class CMSEntityValidator {
     public static ValidatorMsg isValid(CMSEntity entity) {
         ValidatorMsg ret = new ValidatorMsg();
         if (entity == null || StringUtils.isEmpty(entity.getEntityType()) ||
-                StringUtils.isEmpty(entity.getExternalId()) ) {
+                StringUtils.isEmpty(entity.getExternalId())) {
             ret.setMsg("Invalid:Entity is null or missing entity_type/external_id");
             return ret;
         }

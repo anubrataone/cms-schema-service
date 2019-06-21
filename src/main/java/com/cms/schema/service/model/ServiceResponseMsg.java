@@ -5,8 +5,8 @@ import org.springframework.http.HttpStatus;
 import java.io.Serializable;
 
 public class ServiceResponseMsg<T> implements Serializable {
-    private HttpStatus status;
     private final String msg;
+    private HttpStatus status;
     private T data;
 
 
@@ -37,7 +37,7 @@ public class ServiceResponseMsg<T> implements Serializable {
     @Override
     public String toString() {
         return "CollectionRecordData{" +
-                "priority="  +
+                "priority=" +
                 ", msg='" + msg + '\'' +
                 ", status=" + status +
                 '}';

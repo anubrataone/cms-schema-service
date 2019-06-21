@@ -1,18 +1,17 @@
 {
-  "attrName":  "AttrCatalogAvailibility",
+  "attrName": "AttrCatalogAvailibility",
   "attrType": "Compound",
-  "attrClass":  "KVP",
+  "attrClass": "KVP",
   "elements": {
     "startDate": {
       "type": "SingleLineText",
       "required": true,
-      "occurance": "single"
-      },
-      "endDate": {
-        "type": "SingleLineText",
-        "required": true,
-        "occurance": "single"
-      }
-    
+      "occurrence": "single"
+    },
+    "endDate": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single"
+    }
   }
 }

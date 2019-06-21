@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
+
 @Document
 public class CMSEntity {
     @Id
@@ -31,10 +32,14 @@ public class CMSEntity {
     @JsonProperty("bp_version")
     private Integer bpVersion;
 
-    private Map<String,Object> others;
+    private Map<String, Object> others;
 
-    public CMSEntity(){
+    public CMSEntity() {
 
+    }
+
+    public static void main(String[] args) {
+        new CMSEntity().getUrn();
     }
 
     public String getId() {
@@ -70,16 +75,13 @@ public class CMSEntity {
     }
 
     public String getUrn() {
-        if(StringUtils.isNotEmpty(bpName) && StringUtils.isNotEmpty(externalId) ) {
+        if (StringUtils.isNotEmpty(bpName) && StringUtils.isNotEmpty(externalId)) {
             return new StringBuilder(bpName).append("_").append(externalId).toString();
         } else {
             return null;
         }
     }
 
-    public static void main(String args[]){
-        new CMSEntity().getUrn();
-    }
     public String getStatus() {
         return status;
     }
