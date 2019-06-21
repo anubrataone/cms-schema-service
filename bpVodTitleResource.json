@@ -1,0 +1,98 @@
+{
+  "BPURN": "BPVODTitleV1",
+  "BPName": "BPVODTitle",
+  "bpVersion": 1,
+  "name": "asafsf",
+  "urn": "efdgdgf",
+  "status": "PUBLISHED",
+  "externalId": "etetryryryryr",
+  "entityType": "movie",
+  "providerName": {
+    "id": "erryrtsfgtrh",
+    "collection": "provider"
+  },
+  "titleInfo": [{
+    "Title": "AttrLocalizedData",
+    "Description": "multiple",
+    "locale": "",
+    "extendedParams":[
+      {
+        "data":{
+          "key":"",
+          "value":""
+        }
+      },
+      {
+        "data":{
+          "key":"",
+          "value":""
+        }
+      }
+    ]
+  }],
+  "titleAssetId": "ddgdfgfgfdgsfgdfg",
+  "packageAssetId": "fgfdgfgfdgdfgsdfd",
+  "assetName": "dsfsdgdfgfdgsdgd",
+  "availibility": [
+    {
+      "licensingDate":{
+        "startDate":"",
+        "endDate":""
+      },
+      "subscription":"dfsddg",
+      "country":["dfdg","sdfsdfgdfg"]
+    }
+  ],
+  "releaseYear": "3013",
+  "genres": ["dfdg","sdfsdfgdfg"],
+  "categories": ["dfdg","sdfsdfgdfg"],
+  "ratings": ["dfdg","sdfsdfgdfg"],
+  "cast&crew":[
+    {
+      "person":{
+        "name":"asafsf",
+        "country":"",
+        "image":[
+          {
+            "url":"",
+            "streamType":"image"
+          }
+          
+        ]
+
+      },
+      "role":"director",
+      "extendedParams":[
+        {
+          "data":{
+            "key":"",
+            "value":""
+          }
+        },
+        {
+          "data":{
+            "key":"",
+            "value":""
+          }
+        }
+      ]
+
+    }
+
+  ],
+  "image": [
+    {
+      "url":"",
+      "streamType":"image"
+    }
+    
+  ],
+  "streamURL": [
+    {
+      "url":"",
+      "streamType":"video"
+    }
+    
+  ]
+  
+}

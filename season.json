@@ -1,0 +1,75 @@
+{
+  "BPURN": {
+    "type": "SingleLineText",
+    "defaultValue": "SeasonV1",
+    "occurance": "single",
+    "required": true
+  },
+  "BPName": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single",
+    "defaultValue": "Season"
+  },
+  "bpVersion": {
+    "type": "SingleLineNumber",
+    "required": true,
+    "occurance": "single",
+    "defaultValue": "1"
+  },
+  "name": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single"
+  },
+  "urn": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single"
+  },
+  "status": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single"
+  },
+  "externalId": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single"
+  },
+  "entityType": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single",
+    "defaultValue": "season"
+  },
+  "providerName": {
+    "type": "AttrResourceRef",
+    "required": false,
+    "occurance": "single"
+  },
+  "titleInfo": {
+    "type": "AttrLocalizedData",
+    "occurance": "multiple",
+    "required": true
+  },
+  "availibility": {
+    "type": "AttrEntitlement",
+    "occurance": "multiple",
+    "required": false
+  },
+  "ratings": {
+    "type": "SingleLineText",
+    "occurance": "multiple"
+  },
+  "cast&crew":{
+    "type": "AttrCastnCrew",
+    "occurance": "multiple"
+  },
+  "image": {
+    "type": "AttrAsset",
+    "required": false,
+    "occurance": "multiple"
+  }
+  
+}

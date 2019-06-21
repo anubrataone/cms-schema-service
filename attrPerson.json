@@ -1,0 +1,23 @@
+{
+  "attrName": "AttrPerson",
+  "attrType":  "Compound",
+  "attrClass":  "KVP",
+  "elements": {
+    "name": {
+        "type": "SingleLineText",
+        "required": true,
+        "occurance": "single"
+      },
+      "country": {
+        "type": "SingleLineText",
+        "required": false,
+        "occurance": "single"
+      },
+      "image":{
+        "S": "AttrAsset",
+        "required": false,
+        "occurance": "multiple"
+      }
+    
+  }
+}

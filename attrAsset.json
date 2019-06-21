@@ -1,0 +1,44 @@
+{
+  "attrName":  "AttrAsset",
+  "attrType": "Compound",
+  "attrClass":  "KVP",
+  "elements": {
+   "state": {
+        "type": "SingleLineText",
+        "required": false,
+        "occurance": "single"
+      },
+      "url": {
+        "type": "SingleLineText",
+        "required": true,
+        "occurance": "single"
+      },
+      "contentSize": {
+        
+          "type": "SingleLineText",
+          "required": false,
+          "occurance": "single"
+      },
+      "contentDuration":{
+        "type": "SingleLineText",
+          "required": false,
+          "occurance": "single"
+      },
+      "checksum":{
+        "type": "SingleLineText",
+          "required": false,
+          "occurance": "single"
+      },
+      "streamType":{
+        "type": "SingleLineText",
+          "required": true,
+          "occurance": "single"
+      },
+      "extendedParams":{
+        "type": "AttrCustomParam",
+        "required": false,
+        "occurance": "multiple"
+      }
+    
+  }
+}

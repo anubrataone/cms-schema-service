@@ -1,0 +1,18 @@
+{
+  "attrName":  "AttrResourceRef",
+  "attrType":  "Compound",
+  "attrClass":  "Reference",
+  "elements": {
+        "id": {
+          "type": "SingleLineText",
+          "required": true,
+          "occurance": "single"
+      },
+      "collection": {
+        "type": "SingleLineText",
+        "required": true,
+        "occurance": "single"
+    }
+    
+  }
+}

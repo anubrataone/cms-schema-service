@@ -128,6 +128,8 @@ This service provides schema creation - management - validation service
 
     attrName is the identifier.
     Code creates a new UUID for the inserted object.    
+    Name of the blueprint is the collection name in mongo db. While creating BP create collection.
+    also create unique index on that collection based on BP description.
 
     
 
@@ -155,6 +157,8 @@ This service provides schema creation - management - validation service
 
     Blueprint name and blueprint version is the identifier.
     Code creates a new UUID for the inserted object.    
+    
+    Update unique index if required for the collecton.
 
     
 

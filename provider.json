@@ -1,0 +1,53 @@
+{
+  "BPURN": {
+    "type": "SingleLineText",
+    "defaultValue": "ContentProviderV1",
+    "required": true
+  },
+  "BPName": {
+    "type": "SingleLineText",
+    "required": true,
+    "defaultValue": "ContentProvider"
+  },
+  "bpVersion": {
+    "type": "SingleLineNumber",
+    "required": true,
+    "defaultValue": "1"
+  },
+  "urn": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single"
+  },
+  "status": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single"
+  },
+  "providerId": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single"
+  },
+  "entityType": {
+    "type": "SingleLineText",
+    "required": true,
+    "occurance": "single"
+  },
+  "providerName": {
+    "type": "SingleLineText",
+    "required": false,
+    "occurance": "single"
+  },
+  "logo": {
+    "type": "AttrAsset",
+    "required": false,
+    "occurance": "multiple"
+  },
+  "extendedParams":{
+    "type": "AttrCustomParam",
+    "required": false,
+    "occurance": "multiple"
+  }
+  
+}
