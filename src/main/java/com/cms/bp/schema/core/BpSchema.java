@@ -1,5 +1,6 @@
 package com.cms.bp.schema.core;
 
+import com.cms.bp.validator.SchemaValidatorResult;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
@@ -10,16 +11,16 @@ import java.io.Serializable;
 
 public abstract class BpSchema implements Serializable {
     public static ObjectMapper mapper = new ObjectMapper();
-
+    private final String schemaFileName;
     private String schemaJson;
     private JsonNode schemaJsonNode;
 
-    //    private String type = "Native";
-//    private String clazz = "string";
-    private String schemaFileName = null;
+    public BpSchema(String schemaFileName) {
+        this.schemaFileName = schemaFileName;
+    }
 
     public static void main(String[] args) throws Exception {
-        BpSchema p = new SingleLineDouble();
+        BpSchema p = new SingleLineDouble("SingleLineDouble");
         p.reloadSchemaDescriptor();
         System.out.print(p.getSchemaJson());
         System.out.println("Validate : " + p.validate("3"));
@@ -29,21 +30,9 @@ public abstract class BpSchema implements Serializable {
         return schemaFileName;
     }
 
-    public void setSchemaFileName(String schemaFileName) {
-        this.schemaFileName = schemaFileName;
-    }
-
     public String getSchemaJson() {
         return schemaJson;
     }
-
-//    public String getType() {
-//        return type;
-//    }
-//
-//    public String getClazz() {
-//        return clazz;
-//    }
 
     private void setSchemaJson(String schemaJson) {
         this.schemaJson = schemaJson;
@@ -73,9 +62,8 @@ public abstract class BpSchema implements Serializable {
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(schemaJson);
         setSchemaJsonNode(jsonNode);
-//        this.type = jsonNode.get("attrType").asText();
-//        this.clazz = jsonNode.get("attrClass").asText();
+
     }
 
-    public abstract boolean validate(String jsonContent);
+    public abstract SchemaValidatorResult validate(String jsonContent);
 }

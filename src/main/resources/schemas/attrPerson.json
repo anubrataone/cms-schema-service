@@ -1,20 +1,20 @@
 {
-  "attrName": "AttrCastnCrew",
+  "attrName": "AttrPerson",
   "attrType":  "Compound",
   "attrClass":  "KVP",
   "elements": {
-    "person": {
-        "type": "AttrPerson",
-        "required": true,
-        "occurance": "single"
-      },
-      "role": {
+    "name": {
         "type": "SingleLineText",
         "required": true,
         "occurance": "single"
       },
-      "extendedParams":{
-        "S": "AttrCustomParam",
+      "country": {
+        "type": "SingleLineText",
+        "required": false,
+        "occurance": "single"
+      },
+      "image":{
+        "type": "AttrAsset",
         "required": false,
         "occurance": "multiple"
       }

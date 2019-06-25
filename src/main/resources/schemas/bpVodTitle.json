@@ -17,99 +17,100 @@
   "name": {
     "type": "SingleLineText",
     "required": true,
-    "occurance": "single",
+    "occurrence": "single",
     "primary-key": true
   },
   "urn": {
     "type": "SingleLineText",
     "required": true,
-    "occurance": "single",
+    "occurrence": "single",
     "primary-key": true
   },
   "status": {
     "type": "SingleLineText",
     "required": true,
-    "occurance": "single"
+    "occurrence": "single"
   },
   "externalId": {
     "type": "SingleLineText",
     "required": true,
-    "occurance": "single"
+    "occurrence": "single"
   },
   "entityType": {
     "type": "SingleLineText",
     "required": true,
-    "occurance": "single"
+    "occurrence": "single"
   },
   "providerName": {
     "type": "AttrResourceRef",
     "required": false,
-    "occurance": "single"
+    "occurrence": "single"
   },
   "episode_num": {
     "type": "SingleLineText",
     "required": false,
-    "occurance": "single"
+    "occurrence": "single"
   },
   "seriesName": {
     "type": "AttrResourceRef",
     "required": false,
-    "occurance": "single"
+    "occurrence": "single"
   },
   "seasonName": {
     "type": "AttrResourceRef",
     "required": false,
-    "occurance": "single"
+    "occurrence": "single"
   },
   "titleInfo": {
     "type": "AttrLocalizedData",
-    "occurance": "multiple"
+    "required": true,
+    "occurrence": "multiple"
   },
   "titleAssetId": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "packageAssetId": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "assetName": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "availibility": {
     "type": "AttrEntitlement",
-    "occurance": "multiple"
+    "occurrence": "multiple"
   },
   "releaseYear": {
     "type": "SingleLineText",
-    "occurance": "single"
+    "occurrence": "single"
   },
   "genres": {
     "type": "SingleLineText",
-    "occurance": "multiple"
+    "occurrence": "multiple"
   },
   "categories": {
     "type": "SingleLineText",
-    "occurance": "multiple"
+    "occurrence": "multiple"
   },
   "ratings": {
     "type": "SingleLineText",
-    "occurance": "multiple"
+    "occurrence": "multiple"
   },
   "cast&crew":{
     "type": "AttrCastnCrew",
-    "occurance": "multiple"
+    "occurrence": "multiple"
   },
   "image": {
     "type": "AttrAsset",
     "required": false,
-    "occurance": "multiple"
+    "occurrence": "multiple"
   },
   "streamURL": {
     "type": "AttrAsset",
     "required": false,
-    "occurance": "multiple"
+    "occurrence": "multiple"
   }
   
 }

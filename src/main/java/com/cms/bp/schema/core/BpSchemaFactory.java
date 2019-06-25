@@ -16,13 +16,13 @@ public class BpSchemaFactory {
     private ConcurrentHashMap<String, BpSchema> schemaMap = new ConcurrentHashMap<>();
 
     private BpSchemaFactory() {
-        schemaMap.put(SingleLineBoolean.class.getSimpleName(), new SingleLineBoolean());
-        schemaMap.put(SingleLineDouble.class.getSimpleName(), new SingleLineDouble());
-        schemaMap.put(SingleLineNumber.class.getSimpleName(), new SingleLineNumber());
-        schemaMap.put(SingleLineText.class.getSimpleName(), new SingleLineText());
+        schemaMap.put(SingleLineBoolean.class.getSimpleName(), new SingleLineBoolean("SingleLineBoolean"));
+        schemaMap.put(SingleLineDouble.class.getSimpleName(), new SingleLineDouble("SingleLineDouble"));
+        schemaMap.put(SingleLineNumber.class.getSimpleName(), new SingleLineNumber("SingleLineNumber"));
+        schemaMap.put(SingleLineText.class.getSimpleName(), new SingleLineText("SingleLineText"));
 
-        BpSchema bpVodTitle = new CompoundSchema();
-        bpVodTitle.setSchemaFileName("bpVodTitle");
+        BpSchema bpVodTitle = new CompoundSchema("bpVodTitle");
+
         try {
             bpVodTitle.reloadSchemaDescriptor();
         } catch (IOException e) {
@@ -30,8 +30,8 @@ public class BpSchemaFactory {
         }
         schemaMap.put("BpVodTitle", bpVodTitle);
 
-        BpSchema attrAsset = new CompoundSchema();
-        attrAsset.setSchemaFileName("AttrAsset");
+        BpSchema attrAsset = new AttributeCompoundSchema("AttrAsset");
+
         try {
             attrAsset.reloadSchemaDescriptor();
         } catch (IOException e) {
@@ -39,8 +39,8 @@ public class BpSchemaFactory {
         }
         schemaMap.put("AttrAsset", attrAsset);
 
-        BpSchema attrCatalogAvailibility = new CompoundSchema();
-        attrCatalogAvailibility.setSchemaFileName("AttrCatalogAvailibility");
+        BpSchema attrCatalogAvailibility = new AttributeCompoundSchema("AttrCatalogAvailibility");
+
         try {
             attrCatalogAvailibility.reloadSchemaDescriptor();
         } catch (IOException e) {
@@ -48,8 +48,7 @@ public class BpSchemaFactory {
         }
         schemaMap.put("AttrCatalogAvailibility", attrCatalogAvailibility);
 
-        BpSchema attrEntitlement = new CompoundSchema();
-        attrEntitlement.setSchemaFileName("AttrEntitlements");
+        BpSchema attrEntitlement = new AttributeCompoundSchema("AttrEntitlements");
         try {
             attrEntitlement.reloadSchemaDescriptor();
         } catch (IOException e) {
@@ -57,8 +56,8 @@ public class BpSchemaFactory {
         }
         schemaMap.put("AttrEntitlement", attrEntitlement);
 
-        BpSchema attrLocalizedData = new CompoundSchema();
-        attrLocalizedData.setSchemaFileName("AttrLocalizedData");
+        BpSchema attrLocalizedData = new AttributeCompoundSchema("AttrLocalizedData");
+
         try {
             attrLocalizedData.reloadSchemaDescriptor();
         } catch (IOException e) {
@@ -66,8 +65,9 @@ public class BpSchemaFactory {
         }
         schemaMap.put("AttrLocalizedData", attrLocalizedData);
 
-        BpSchema attrResourceRef = new CompoundSchema();
-        attrResourceRef.setSchemaFileName("AttrResourceRef");
+
+        BpSchema attrResourceRef = new AttributeCompoundSchema("AttrResourceRef");
+
         try {
             attrResourceRef.reloadSchemaDescriptor();
         } catch (IOException e) {
@@ -75,6 +75,29 @@ public class BpSchemaFactory {
         }
         schemaMap.put("AttrResourceRef", attrResourceRef);
 
+        BpSchema attrCastnCrew = new AttributeCompoundSchema("AttrCastnCrew");
+        try {
+            attrCastnCrew.reloadSchemaDescriptor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        schemaMap.put("AttrCastnCrew", attrCastnCrew);
+
+        BpSchema attrCustomParam = new AttrCustomParam("attrCustomParam");
+        try {
+            attrCustomParam.reloadSchemaDescriptor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        schemaMap.put("AttrCustomParam", attrCustomParam);
+
+        BpSchema attrPersonis = new AttributeCompoundSchema("attrPerson");
+        try {
+            attrPersonis.reloadSchemaDescriptor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        schemaMap.put("AttrPerson", attrPersonis);
 
     }
 

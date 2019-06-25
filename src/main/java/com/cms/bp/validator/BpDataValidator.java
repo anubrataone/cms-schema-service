@@ -20,7 +20,7 @@ public class BpDataValidator {
         BpDataValidator v = new BpDataValidator();
         String jsonData = "";
         ConcurrentHashMap<String, Boolean> validateResult = new ConcurrentHashMap<String, Boolean>();
-        v.validate(validateResult, new ObjectMapper(), jsonData, new SingleLineBoolean());
+        v.validate(validateResult, new ObjectMapper(), jsonData, new SingleLineBoolean("SingleLineBoolean"));
     }
 
     public ObjectMapper getMapper() {

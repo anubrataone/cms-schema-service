@@ -9,7 +9,7 @@
         "value": {"type" :"SingleLineText"}
       },
       "required": false,
-      "occurance": "single"
+      "occurrence": "single"
     }
       
     

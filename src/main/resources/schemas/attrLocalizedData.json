@@ -19,7 +19,7 @@
       "occurrence": "single"
     },
     "extendedParams": {
-      "S": "AttrCustomParam",
+      "type": "AttrCustomParam",
       "required": false,
       "occurrence": "single"
     }

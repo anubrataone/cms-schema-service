@@ -14,7 +14,7 @@
         "occurance": "single"
       },
       "image":{
-        "S": "AttrAsset",
+        "type": "AttrAsset",
         "required": false,
         "occurance": "multiple"
       }

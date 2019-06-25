@@ -1,8 +1,14 @@
 package com.cms.bp.schema.core;
 
-public class ResourceReferenceSchema extends BpSchema{
+import com.cms.bp.validator.SchemaValidatorResult;
+
+public class ResourceReferenceSchema extends BpSchema {
+    public ResourceReferenceSchema(String schemaFileName) {
+        super(schemaFileName);
+    }
+
     @Override
-    public boolean validate(String jsonContent) {
-        return false;
+    public SchemaValidatorResult validate(String jsonContent) {
+        return new SchemaValidatorResult(SchemaValidatorResult.FIELD_INVALID);
     }
 }
