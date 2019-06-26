@@ -11,6 +11,11 @@ public abstract class BpSchema implements Serializable {
 
 
     public static ObjectMapper mapper = new ObjectMapper();
+    public static final String REQUIRED_NODE_NAME="required";
+    public static final String OCCURRENCE_NODE_NAME="occurrence";
+    public static final String TYPE_NODE_NAME="type";
+    public static final String ELEMENTS_NODE_NAME="elements";
+
     private File schemaFile;
     private String schemaJson;
     private JsonNode schemaJsonNode;

@@ -5,17 +5,12 @@ import com.cms.bp.validator.SchemaValidatorResult;
 import java.io.IOException;
 
 public class AttrCustomParam extends CompoundSchema {
-    private CompoundSchema compoundSchema;
-
-    public AttrCustomParam(String schemaFileName) throws IOException {
-        super(schemaFileName);
-        //compoundSchema = new CompoundSchema(this.getSchemaFileName());
-
+     public AttrCustomParam(String jsonSchema) throws IOException {
+        super(jsonSchema);
     }
 
     @Override
     public SchemaValidatorResult validate(String jsonContent) {
-        return super.validate(this.getSchemaJsonNode().get("elements").get("data"), jsonContent);
-        //return this.compoundSchema.validate(this.getSchemaJsonNode().get("elements").get("data"), jsonContent);
+        return super.validate(this.getSchemaJsonNode().get(ELEMENTS_NODE_NAME).get("data"), jsonContent);
     }
 }

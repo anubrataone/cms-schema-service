@@ -4,12 +4,12 @@
   "urn": "KVP",
   "status": "status",
   "elements": {
-    "BPURN": {
+    "bpURN": {
       "type": "SingleLineText",
       "defaultValue": "BPVODTitleV1",
       "required": true
     },
-    "BPName": {
+    "bpName": {
       "type": "SingleLineText",
       "required": true,
       "defaultValue": "BPVODTitle"

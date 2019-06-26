@@ -1,5 +1,6 @@
 package com.cms.schema.rest.dto;
 
+import com.cms.bp.schema.core.BpSchema;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,7 +24,7 @@ public class SchemaAttributeDto implements Serializable {
     @JsonProperty("attrClass")
     private String attrClass;
 
-    @JsonProperty("elements")
+    @JsonProperty(BpSchema.ELEMENTS_NODE_NAME)
     private Map<String, LinkedHashMap> elements;
 
     public SchemaAttributeDto() {

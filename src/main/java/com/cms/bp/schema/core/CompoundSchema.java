@@ -17,7 +17,7 @@ public class CompoundSchema extends BpSchema {
 
     @Override
     public SchemaValidatorResult validate(String jsonData) {
-        return validate(getSchemaJsonNode().get("elements"), jsonData);
+        return validate(getSchemaJsonNode().get(ELEMENTS_NODE_NAME), jsonData);
     }
 
     public SchemaValidatorResult validate(JsonNode schemaNodeToValidate, String jsonContent) {
@@ -66,8 +66,8 @@ public class CompoundSchema extends BpSchema {
         schemaNodeToValidate.fields().forEachRemaining(keyValueElementSchemaNode -> {
 
             JsonNode foundDataNode = jsonDataNode.get(keyValueElementSchemaNode.getKey());
-            if (keyValueElementSchemaNode.getValue().get("required") != null &&
-                    keyValueElementSchemaNode.getValue().get("required").booleanValue() == true) {
+            if (keyValueElementSchemaNode.getValue().get(REQUIRED_NODE_NAME) != null &&
+                    keyValueElementSchemaNode.getValue().get(REQUIRED_NODE_NAME).booleanValue() == true) {
                 if (foundDataNode == null) {
                     invalidResultMsg.append("Missing Required Node - ")
                             .append(keyValueElementSchemaNode.getKey())
@@ -75,8 +75,8 @@ public class CompoundSchema extends BpSchema {
                 }
             }
 
-            if (keyValueElementSchemaNode.getValue().get("occurrence") != null &&
-                    keyValueElementSchemaNode.getValue().get("occurrence").asText().equals("multiple")) {
+            if (keyValueElementSchemaNode.getValue().get(OCCURRENCE_NODE_NAME) != null &&
+                    keyValueElementSchemaNode.getValue().get(OCCURRENCE_NODE_NAME).asText().equals("multiple")) {
                 if (!(foundDataNode.isArray())) {
                     invalidResultMsg.append("Expected Array Node - ")
                             .append(keyValueElementSchemaNode.getKey())
@@ -86,9 +86,9 @@ public class CompoundSchema extends BpSchema {
 
             if (foundDataNode != null) {
                 BpSchema schemaByName = BpSchemaFactory.getInstance().getSchemaByName(
-                        keyValueElementSchemaNode.getValue().get("type").asText());
+                        keyValueElementSchemaNode.getValue().get(TYPE_NODE_NAME).asText());
                 if (schemaByName == null) {
-                    invalidResultMsg.append("Schema name:").append(keyValueElementSchemaNode.getValue().get("type").asText())
+                    invalidResultMsg.append("Schema name:").append(keyValueElementSchemaNode.getValue().get(TYPE_NODE_NAME).asText())
                             .append(" is not supported");
                     throw new NullPointerException(invalidResultMsg.toString());
                 }
@@ -96,7 +96,9 @@ public class CompoundSchema extends BpSchema {
                 if (SchemaValidatorResult.SUCCESS != validatorResult.getCode()) {
                     invalidResultMsg.append(keyValueElementSchemaNode).append("Not valid at validation: ").append(validatorResult.getMsg());
                 } else {
-                    validResultMsg.append("Valid - " + foundDataNode.toString()).append(validatorResult.getMsg());
+                    validResultMsg.append("Valid - Node Name:").append(keyValueElementSchemaNode.getKey())
+                            .append(" - value:").append(foundDataNode.toString()).append(validatorResult.getMsg())
+                            .append(" \n ");
                 }
             }
 
