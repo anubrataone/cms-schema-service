@@ -1,0 +1,27 @@
+{
+  "attrName": "AttrLocalizedData",
+  "attrType": "Compound",
+  "attrClass": "KVP",
+  "elements": {
+    "Title": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single"
+    },
+    "Description": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single"
+    },
+    "locale": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single"
+    },
+    "extendedParams": {
+      "type": "AttrCustomParam",
+      "required": false,
+      "occurrence": "single"
+    }
+  }
+}

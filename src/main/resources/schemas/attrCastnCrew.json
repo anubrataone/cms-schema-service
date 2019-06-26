@@ -1,0 +1,23 @@
+{
+  "attrName": "AttrCastnCrew",
+  "attrType":  "Compound",
+  "attrClass":  "KVP",
+  "elements": {
+    "person": {
+        "type": "AttrPerson",
+        "required": true,
+        "occurrence": "single"
+      },
+      "role": {
+        "type": "SingleLineText",
+        "required": true,
+        "occurrence": "single"
+      },
+      "extendedParams":{
+        "type": "AttrCustomParam",
+        "required": false,
+        "occurrence": "multiple"
+      }
+    
+  }
+}

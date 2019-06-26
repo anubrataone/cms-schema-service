@@ -1,0 +1,22 @@
+{
+  "attrName": "AttrEntitlement",
+  "attrType": "Compound",
+  "attrClass": "KVP",
+  "elements": {
+    "licensingDate": {
+      "type": "AttrCatalogAvailibility",
+      "required": false,
+      "occurrence": "single"
+    },
+    "subscription": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single"
+    },
+    "country": {
+      "type": "SingleLineText",
+      "required": false,
+      "occurrence": "multiple"
+    }
+  }
+}

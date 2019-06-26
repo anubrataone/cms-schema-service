@@ -47,7 +47,7 @@ This service provides schema creation - management - validation service
         "message": "Success",
         "system_time": 1558041284123
     },
-    "data": {
+    "schemaJsonData": {
         <RESPONSEOBJECT>
     }
 }
@@ -65,7 +65,7 @@ This service provides schema creation - management - validation service
         "rows": 10,
         "count": 100
     },
-    "data": [
+    "schemaJsonData": [
         <RESPONSEOBJECTLIST>
     ]
 }
@@ -103,8 +103,8 @@ This service provides schema creation - management - validation service
              }
          ]
      },
-     --  this data part is optional
-     "data": [
+     --  this schemaJsonData part is optional
+     "schemaJsonData": [
          <RESPONSEOBJECTLIST>
      ]
  }
@@ -141,7 +141,7 @@ This service provides schema creation - management - validation service
 | attrName    | String | 	|
 | attrType    | Integer | 	|
 | attrClass    | String | Concatenate (bpName,bpVersion)	|
-| elements    | JSON Object | optional free flow data	|
+| elements    | JSON Object | optional free flow schemaJsonData	|
 
 
 
@@ -172,7 +172,7 @@ This service provides schema creation - management - validation service
 | urn    | String | Concatenate (bpName,bpVersion)	|
 | status    | String | ACTIVATE/DEACTIVATE	|
 
-Rest JSON data are free flow 
+Rest JSON schemaJsonData are free flow
 
 
 ##### PUT CALLS
@@ -208,9 +208,9 @@ This can be full document replace or just set particular fields.
 | _id    | String | ObjectId	|
 | bpName    | String | {VODTitle / Series / Season / Provider/ Channel / Program / Schedule}	|
 | bpVersion    | Integer | 	|
-| data    | JSON Object | free flow JSON Data	|
+| schemaJsonData    | JSON Object | free flow JSON Data	|
 
-Rest JSON data are free flow for whole BP or just set of fields.
+Rest JSON schemaJsonData are free flow for whole BP or just set of fields.
 
 
 
@@ -260,7 +260,7 @@ Rest JSON data are free flow for whole BP or just set of fields.
     Content-type: application/json
     - bpName: blueprint name 
     - bpVersion: blueprint version
-    - data : resource json body
+    - schemaJsonData : resource json body
     
     
 ```

@@ -1,0 +1,21 @@
+{
+  "attrName": "AttrCustomParam",
+  "attrType": "Compound",
+  "attrClass": "CustomKVP",
+  "elements": {
+    "data": {
+      "type": {
+        "key": {
+          "type": "SingleLineText",
+          "required": false
+        },
+        "value": {
+          "type": "SingleLineText",
+          "required": false
+        }
+      },
+      "required": false,
+      "occurrence": "multiple"
+    }
+  }
+}
