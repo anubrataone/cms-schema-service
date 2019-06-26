@@ -1,12 +1,10 @@
 package com.cms.schema.application.mongo;
 
-import com.cms.bp.schema.core.BpSchema;
 import com.cms.bp.schema.core.BpSchemaFactory;
 import com.cms.schema.application.SpringMongoConfig;
 import com.cms.schema.rest.dto.SchemaDto;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.NullNode;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import org.bson.types.ObjectId;
@@ -21,8 +19,6 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class SchemaEntityDBService {
@@ -113,11 +109,11 @@ public class SchemaEntityDBService {
         schemaEntities.stream().forEach(schemaEntity -> {
             JsonNode schemaNode = mapper.convertValue(schemaEntity, JsonNode.class);
 
-                try {
-                    BpSchemaFactory.getInstance().createBpSchemaInstance(schemaNode, "bpName", null, schemaNode.toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            try {
+                BpSchemaFactory.getInstance().createBpSchemaInstance(schemaNode, "bpName", null, schemaNode.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         });
     }

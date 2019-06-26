@@ -1,13 +1,10 @@
 package com.cms.schema.application.mongo;
 
-import com.cms.bp.schema.core.BpSchema;
 import com.cms.bp.schema.core.BpSchemaFactory;
-import com.cms.schema.rest.dto.SchemaAttributeDto;
 import com.cms.schema.application.SpringMongoConfig;
-import com.cms.schema.rest.dto.SchemaDto;
+import com.cms.schema.rest.dto.SchemaAttributeDto;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.NullNode;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import org.bson.types.ObjectId;
@@ -23,8 +20,6 @@ import javax.annotation.PostConstruct;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class SchemaAttributeEntityDBService {
@@ -121,11 +116,11 @@ public class SchemaAttributeEntityDBService {
         schemaEntities.stream().forEach(schemaEntity -> {
             JsonNode schemaNode = mapper.convertValue(schemaEntity, JsonNode.class);
 
-                try {
-                    BpSchemaFactory.getInstance().createBpSchemaInstance(schemaNode, "attrName", "attrClass", schemaNode.toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            try {
+                BpSchemaFactory.getInstance().createBpSchemaInstance(schemaNode, "attrName", "attrClass", schemaNode.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
         });
