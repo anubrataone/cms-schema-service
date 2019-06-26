@@ -5,29 +5,26 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Serializable;
+import java.io.*;
 
 public abstract class BpSchema implements Serializable {
+
+
     public static ObjectMapper mapper = new ObjectMapper();
-    private final String schemaFileName;
+    private File schemaFile;
     private String schemaJson;
     private JsonNode schemaJsonNode;
 
-    public BpSchema(String schemaFileName) {
-        this.schemaFileName = schemaFileName;
+    public BpSchema(File schemaFile) {
+        this.schemaFile = schemaFile;
     }
 
-    public static void main(String[] args) throws Exception {
-        BpSchema p = new SingleLineDouble("SingleLineDouble");
-        p.reloadSchemaDescriptor();
-        System.out.print(p.getSchemaJson());
-        System.out.println("Validate : " + p.validate("3"));
+    public BpSchema(String schemaJsonStr) throws IOException {
+        reloadSchemaDescriptor(schemaJsonStr);
     }
 
-    public String getSchemaFileName() {
-        return schemaFileName;
+    public File getSchemaFile() {
+        return schemaFile;
     }
 
     public String getSchemaJson() {
@@ -46,21 +43,33 @@ public abstract class BpSchema implements Serializable {
         this.schemaJsonNode = schemaJsonNode;
     }
 
-    public void reloadSchemaDescriptor() throws IOException {
+    public void reloadSchemaDescriptor() {
 
-        String schemaFileName = (this.schemaFileName == null) ? this.getClass().getSimpleName() : this.schemaFileName;
-        char[] c = schemaFileName.toCharArray();
-        Character.toLowerCase(c[0]);
+        InputStream in = null;
+        try {
 
-        schemaFileName = new String(c);
-        InputStream in = BpSchema.class.getClassLoader().getResourceAsStream(new StringBuilder("schemas/")
-                .append(schemaFileName).append(".json").toString());
-        String schemaJsonData = IOUtils.toString(in, "UTF-8");
-        in.close();
-        setSchemaJson(schemaJsonData);
+            String schemaJsonData = IOUtils.toString(new FileInputStream(schemaFile), "UTF-8");
+
+            reloadSchemaDescriptor(schemaJsonData);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (in != null) {
+                try {
+                    in.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void reloadSchemaDescriptor(String schemaJsonStr) throws IOException {
+
+        setSchemaJson(schemaJsonStr);
 
         ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode jsonNode = objectMapper.readTree(schemaJson);
+        JsonNode jsonNode = objectMapper.readTree(getSchemaJson());
         setSchemaJsonNode(jsonNode);
 
     }

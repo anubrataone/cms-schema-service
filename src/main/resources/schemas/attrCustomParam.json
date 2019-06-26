@@ -6,10 +6,12 @@
     "data": {
       "type": {
         "key": {
-          "type": "SingleLineText"
+          "type": "SingleLineText",
+          "required": false
         },
         "value": {
-          "type": "SingleLineText"
+          "type": "SingleLineText",
+          "required": false
         }
       },
       "required": false,

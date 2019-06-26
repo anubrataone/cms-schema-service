@@ -1,116 +1,121 @@
 {
-  "BPURN": {
-    "type": "SingleLineText",
-    "defaultValue": "BPVODTitleV1",
-    "required": true
-  },
-  "BPName": {
-    "type": "SingleLineText",
-    "required": true,
-    "defaultValue": "BPVODTitle"
-  },
-  "bpVersion": {
-    "type": "SingleLineNumber",
-    "required": true,
-    "defaultValue": "1"
-  },
-  "name": {
-    "type": "SingleLineText",
-    "required": true,
-    "occurrence": "single",
-    "primary-key": true
-  },
-  "urn": {
-    "type": "SingleLineText",
-    "required": true,
-    "occurrence": "single",
-    "primary-key": true
-  },
-  "status": {
-    "type": "SingleLineText",
-    "required": true,
-    "occurrence": "single"
-  },
-  "externalId": {
-    "type": "SingleLineText",
-    "required": true,
-    "occurrence": "single"
-  },
-  "entityType": {
-    "type": "SingleLineText",
-    "required": true,
-    "occurrence": "single"
-  },
-  "providerName": {
-    "type": "AttrResourceRef",
-    "required": false,
-    "occurrence": "single"
-  },
-  "episode_num": {
-    "type": "SingleLineText",
-    "required": false,
-    "occurrence": "single"
-  },
-  "seriesName": {
-    "type": "AttrResourceRef",
-    "required": false,
-    "occurrence": "single"
-  },
-  "seasonName": {
-    "type": "AttrResourceRef",
-    "required": false,
-    "occurrence": "single"
-  },
-  "titleInfo": {
-    "type": "AttrLocalizedData",
-    "required": true,
-    "occurrence": "multiple"
-  },
-  "titleAssetId": {
-    "type": "SingleLineText",
-    "occurrence": "single"
-  },
-  "packageAssetId": {
-    "type": "SingleLineText",
-    "occurrence": "single"
-  },
-  "assetName": {
-    "type": "SingleLineText",
-    "occurrence": "single"
-  },
-  "availibility": {
-    "type": "AttrEntitlement",
-    "occurrence": "multiple"
-  },
-  "releaseYear": {
-    "type": "SingleLineText",
-    "occurrence": "single"
-  },
-  "genres": {
-    "type": "SingleLineText",
-    "occurrence": "multiple"
-  },
-  "categories": {
-    "type": "SingleLineText",
-    "occurrence": "multiple"
-  },
-  "ratings": {
-    "type": "SingleLineText",
-    "occurrence": "multiple"
-  },
-  "cast&crew":{
-    "type": "AttrCastnCrew",
-    "occurrence": "multiple"
-  },
-  "image": {
-    "type": "AttrAsset",
-    "required": false,
-    "occurrence": "multiple"
-  },
-  "streamURL": {
-    "type": "AttrAsset",
-    "required": false,
-    "occurrence": "multiple"
+  "bpName": "VODTitle",
+  "bpVersion": 1,
+  "urn": "KVP",
+  "status": "status",
+  "elements": {
+    "BPURN": {
+      "type": "SingleLineText",
+      "defaultValue": "BPVODTitleV1",
+      "required": true
+    },
+    "BPName": {
+      "type": "SingleLineText",
+      "required": true,
+      "defaultValue": "BPVODTitle"
+    },
+    "bpVersion": {
+      "type": "SingleLineNumber",
+      "required": true,
+      "defaultValue": "1"
+    },
+    "name": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single",
+      "primary-key": true
+    },
+    "urn": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single",
+      "primary-key": true
+    },
+    "status": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single"
+    },
+    "externalId": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single"
+    },
+    "entityType": {
+      "type": "SingleLineText",
+      "required": true,
+      "occurrence": "single"
+    },
+    "providerName": {
+      "type": "AttrResourceRef",
+      "required": false,
+      "occurrence": "single"
+    },
+    "episode_num": {
+      "type": "SingleLineText",
+      "required": false,
+      "occurrence": "single"
+    },
+    "seriesName": {
+      "type": "AttrResourceRef",
+      "required": false,
+      "occurrence": "single"
+    },
+    "seasonName": {
+      "type": "AttrResourceRef",
+      "required": false,
+      "occurrence": "single"
+    },
+    "titleInfo": {
+      "type": "AttrLocalizedData",
+      "required": true,
+      "occurrence": "multiple"
+    },
+    "titleAssetId": {
+      "type": "SingleLineText",
+      "occurrence": "single"
+    },
+    "packageAssetId": {
+      "type": "SingleLineText",
+      "occurrence": "single"
+    },
+    "assetName": {
+      "type": "SingleLineText",
+      "occurrence": "single"
+    },
+    "availibility": {
+      "type": "AttrEntitlement",
+      "occurrence": "multiple"
+    },
+    "releaseYear": {
+      "type": "SingleLineText",
+      "occurrence": "single"
+    },
+    "genres": {
+      "type": "SingleLineText",
+      "occurrence": "multiple"
+    },
+    "categories": {
+      "type": "SingleLineText",
+      "occurrence": "multiple"
+    },
+    "ratings": {
+      "type": "SingleLineText",
+      "occurrence": "multiple"
+    },
+    "cast&crew": {
+      "type": "AttrCastnCrew",
+      "occurrence": "multiple"
+    },
+    "image": {
+      "type": "AttrAsset",
+      "required": false,
+      "occurrence": "multiple"
+    },
+    "streamURL": {
+      "type": "AttrAsset",
+      "required": false,
+      "occurrence": "multiple"
+    }
   }
-  
 }

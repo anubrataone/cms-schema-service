@@ -7,17 +7,18 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
+import java.io.IOException;
+
 public class CompoundSchema extends BpSchema {
 
-    public CompoundSchema(String schemaFileName) {
-        super(schemaFileName);
+    public CompoundSchema(String schemaJson) throws IOException {
+        super(schemaJson);
     }
 
     @Override
-    public SchemaValidatorResult validate(String jsonContent) {
-        return validate(getSchemaJsonNode(), jsonContent);
+    public SchemaValidatorResult validate(String jsonData) {
+        return validate(getSchemaJsonNode().get("elements"), jsonData);
     }
-
 
     public SchemaValidatorResult validate(JsonNode schemaNodeToValidate, String jsonContent) {
 
@@ -106,4 +107,5 @@ public class CompoundSchema extends BpSchema {
             return new SchemaValidatorResult(SchemaValidatorResult.SUCCESS, validResultMsg.toString());
         }
     }
+
 }

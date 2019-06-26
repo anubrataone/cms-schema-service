@@ -16,6 +16,15 @@ import java.net.UnknownHostException;
 public class SpringMongoConfig {
 
     private String uri;
+    private String schemaCollectionName;
+
+    public String getSchemaCollectionName() {
+        return schemaCollectionName;
+    }
+
+    public void setSchemaCollectionName(String schemaCollectionName) {
+        this.schemaCollectionName = schemaCollectionName;
+    }
 
     public String getUri() {
         return uri;
@@ -41,4 +50,6 @@ public class SpringMongoConfig {
         return mongoTemplate;
 
     }
+
+
 }

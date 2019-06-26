@@ -1,6 +1,6 @@
 {
-  "BPURN": "BPVODTitleV1",
-  "BPName": "BPVODTitle",
+  "bpURN": "BPVODTitleV1",
+  "bpName": "VODTitle",
   "bpVersion": 1,
   "name": "vod title name",
   "urn": "vod title urn",
@@ -51,7 +51,7 @@
             "state": "image state in person",
             "streamType":"image"
           }
-          
+
         ]
 
       },
@@ -80,7 +80,7 @@
       "state": "image state",
       "streamType":"image"
     }
-    
+
   ],
   "streamURL": [
     {
@@ -88,7 +88,7 @@
       "state": "stream state",
       "streamType":"video"
     }
-    
+
   ]
-  
+
 }

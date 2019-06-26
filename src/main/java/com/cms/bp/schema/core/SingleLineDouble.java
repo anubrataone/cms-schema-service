@@ -2,10 +2,12 @@ package com.cms.bp.schema.core;
 
 import com.cms.bp.validator.SchemaValidatorResult;
 
+import java.io.IOException;
+
 public class SingleLineDouble extends BpSchema {
 
-    public SingleLineDouble(String schemaFileName) {
-        super(schemaFileName);
+    public SingleLineDouble(String schemaJsonStr) throws IOException {
+        super(schemaJsonStr);
     }
 
     @Override

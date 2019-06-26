@@ -2,10 +2,13 @@ package com.cms.bp.schema.core;
 
 import com.cms.bp.validator.SchemaValidatorResult;
 
+import java.io.IOException;
+
 public class SingleLineBoolean extends BpSchema {
-    public SingleLineBoolean(String schemaFileName) {
-        super(schemaFileName);
+    public SingleLineBoolean(String schemaJsonStr) throws IOException {
+        super(schemaJsonStr);
     }
+
 
     @Override
     public SchemaValidatorResult validate(String jsonContent) {

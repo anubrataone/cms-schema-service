@@ -2,9 +2,17 @@ package com.cms.bp.schema.core;
 
 import com.cms.bp.validator.SchemaValidatorResult;
 
+import java.io.File;
+import java.io.IOException;
+
 public class SingleLineNumber extends BpSchema {
-    public SingleLineNumber(String schemaFileName) {
-        super(schemaFileName);
+
+    public SingleLineNumber(File schemaJsonStr) {
+        super(schemaJsonStr);
+    }
+
+    public SingleLineNumber(String schemaJsonStr) throws IOException {
+        super(schemaJsonStr);
     }
 
     @Override
