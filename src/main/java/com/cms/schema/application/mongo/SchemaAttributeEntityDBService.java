@@ -19,7 +19,9 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class SchemaAttributeEntityDBService {
@@ -40,6 +42,9 @@ public class SchemaAttributeEntityDBService {
             SchemaAttributeDto existing = mongoTemplate.findOne(query, SchemaAttributeDto.class, springMongoConfig.getSchemaCollectionName());
 
             DBObject dbDoc = new BasicDBObject();
+            Map<String, LinkedHashMap> allElements = existing.getElements();
+            allElements.putAll(entity.getElements());
+            entity.getElements().putAll(allElements);
             mongoTemplate.getConverter().write(existing, dbDoc); //it is the one spring use for convertions.
             mongoTemplate.getConverter().write(entity, dbDoc); //it is the one spring use for convertions.
             Update update = Update.fromDBObject(dbDoc);

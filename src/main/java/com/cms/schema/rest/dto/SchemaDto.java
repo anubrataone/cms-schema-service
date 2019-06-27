@@ -20,7 +20,7 @@ public class SchemaDto implements Serializable {
     private String bpName;
 
     @JsonProperty("bpVersion")
-    private String bpVersion;
+    private int bpVersion;
 
     @JsonProperty("urn")
     private String urn;
@@ -59,11 +59,11 @@ public class SchemaDto implements Serializable {
         this.bpName = bpName;
     }
 
-    public String getBpVersion() {
+    public int getBpVersion() {
         return bpVersion;
     }
 
-    public void setBpVersion(String bpVersion) {
+    public void setBpVersion(int bpVersion) {
         this.bpVersion = bpVersion;
     }
 

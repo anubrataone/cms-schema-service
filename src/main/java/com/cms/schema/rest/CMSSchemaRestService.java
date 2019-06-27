@@ -69,7 +69,7 @@ public class CMSSchemaRestService {
     }
 
     @RequestMapping(value = "/attribute", method = RequestMethod.POST)
-    public ResponseData<SchemaAttributeDto> createSchemaAttributeEntity(@RequestBody SchemaAttributeDto attribute) {
+    public ResponseEntity<ResponseData<SchemaAttributeDto>> createSchemaAttributeEntity(@RequestBody SchemaAttributeDto attribute) {
 
         //Step 1: Validate input request  via required parameters
 
@@ -78,7 +78,7 @@ public class CMSSchemaRestService {
         if (!validatorMsg.isValid()) {
             ResponseData<SchemaAttributeDto> responseData = createResponse("Failed: " + validatorMsg.getMsg());
             responseData.setData(attribute);
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         }
 
         //Step 3: add record
@@ -88,16 +88,16 @@ public class CMSSchemaRestService {
             ResponseData<SchemaAttributeDto> responseData = createResponse("Success");
             responseData.setData(attribute);
 
-            return responseData;
+            return ResponseEntity.ok().body(responseData);
         } catch (Exception e) {
 
             ResponseData<SchemaAttributeDto> responseData = createResponse("Failed: " + ExceptionUtils.getStackTrace(e));
-            return responseData;
+            return ResponseEntity.unprocessableEntity().body(responseData);
         }
     }
 
     @RequestMapping(value = "/attribute/{id}", method = RequestMethod.PUT)
-    public ResponseData<SchemaAttributeDto> updateSchemaAttributeEntity(@PathVariable("id") String id, @RequestBody SchemaAttributeDto entity) {
+    public ResponseEntity<ResponseData<SchemaAttributeDto>> updateSchemaAttributeEntity(@PathVariable("id") String id, @RequestBody SchemaAttributeDto entity) {
 
         //Step 1: Validate input request  via required parameters
 
@@ -105,11 +105,11 @@ public class CMSSchemaRestService {
         if (!validatorMsg.isValid()) {
             ResponseData<SchemaAttributeDto> responseData = createResponse("Failed: " + validatorMsg.getMsg());
             responseData.setData(entity);
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         } else if (StringUtils.isEmpty(id)) {
             ResponseData<SchemaAttributeDto> responseData = createResponse("Failed: Id must not be empty or null for updating");
             responseData.setData(entity);
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         }
 
         //Step 2: Validate input header
@@ -121,11 +121,11 @@ public class CMSSchemaRestService {
             ResponseData<SchemaAttributeDto> responseData = createResponse("Success");
             responseData.setData(entity);
 
-            return responseData;
+            return ResponseEntity.ok().body(responseData);
         } catch (Exception e) {
 
             ResponseData<SchemaAttributeDto> responseData = createResponse("Failed: " + ExceptionUtils.getStackTrace(e));
-            return responseData;
+            return ResponseEntity.unprocessableEntity().body(responseData);
         }
     }
 
@@ -159,7 +159,7 @@ public class CMSSchemaRestService {
 
     /***START SCHEMA APIS***************/
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseData<SchemaDto> createSchemaEntity(@RequestBody String schemaBody) {
+    public ResponseEntity<ResponseData<SchemaDto>> createSchemaEntity(@RequestBody String schemaBody) {
 
         //Step 1: Validate input request  via required parameters
         ObjectMapper mapper = new ObjectMapper();
@@ -168,7 +168,7 @@ public class CMSSchemaRestService {
             schemaDto = mapper.readValue(schemaBody, SchemaDto.class);
         } catch (IOException e) {
             ResponseData<SchemaDto> responseData = createResponse("Failed: " + ExceptionUtils.getStackTrace(e));
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         }
 
         //Step 2: Validate input header
@@ -176,7 +176,7 @@ public class CMSSchemaRestService {
         if (!validatorMsg.isValid()) {
             ResponseData<SchemaDto> responseData = createResponse("Failed: " + validatorMsg.getMsg());
             responseData.setData(schemaDto);
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         }
 
         //Step 3: add record
@@ -186,16 +186,16 @@ public class CMSSchemaRestService {
             ResponseData<SchemaDto> responseData = createResponse("Success");
             responseData.setData(schemaDto);
 
-            return responseData;
+            return ResponseEntity.ok().body(responseData);
         } catch (Exception e) {
 
             ResponseData<SchemaDto> responseData = createResponse("Failed: " + ExceptionUtils.getStackTrace(e));
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         }
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseData<SchemaDto> updateEntity(@PathVariable("id") String id, @RequestBody String schemaBody) {
+    public ResponseEntity<ResponseData<SchemaDto>> updateSchema(@PathVariable("id") String id, @RequestBody String schemaBody) {
 
         //Step 1: Validate input request  via required parameters
 
@@ -205,18 +205,18 @@ public class CMSSchemaRestService {
             schemaDto = mapper.readValue(schemaBody, SchemaDto.class);
         } catch (IOException e) {
             ResponseData<SchemaDto> responseData = createResponse("Failed: " + ExceptionUtils.getStackTrace(e));
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         }
 
         ValidatorMsg validatorMsg = SchemaEntityValidator.isValid(schemaDto);
         if (!validatorMsg.isValid()) {
             ResponseData<SchemaDto> responseData = createResponse("Failed: " + validatorMsg.getMsg());
             responseData.setData(schemaDto);
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         } else if (StringUtils.isEmpty(id)) {
             ResponseData<SchemaDto> responseData = createResponse("Failed: Id must not be empty or null for updating");
             responseData.setData(schemaDto);
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         }
 
         //Step 2: Validate input header
@@ -228,16 +228,16 @@ public class CMSSchemaRestService {
             ResponseData<SchemaDto> responseData = createResponse("Success");
             responseData.setData(schemaDto);
 
-            return responseData;
+            return ResponseEntity.ok().body(responseData);
         } catch (Exception e) {
 
             ResponseData<SchemaDto> responseData = createResponse("Failed: " + ExceptionUtils.getStackTrace(e));
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         }
     }
 
     @RequestMapping(value = "/validate", method = RequestMethod.POST)
-    public ResponseData<SchemaValidatorResult> validate(@RequestBody String bpBody) {
+    public ResponseEntity<ResponseData<SchemaValidatorResult>> validate(@RequestBody String bpBody) {
 
         //Step 1: Validate input request  via required parameters
 
@@ -257,11 +257,11 @@ public class CMSSchemaRestService {
             ResponseData<SchemaValidatorResult> responseData = createResponse("Success");
             responseData.setData(validatorResult);
 
-            return responseData;
+            return ResponseEntity.ok().body(responseData);
         } catch (Exception e) {
 
             ResponseData<SchemaValidatorResult> responseData = createResponse("Failed: " + ExceptionUtils.getStackTrace(e));
-            return responseData;
+            return ResponseEntity.badRequest().body(responseData);
         }
     }
 
