@@ -5,7 +5,7 @@ import com.cms.bp.validator.SchemaValidatorResult;
 import java.io.IOException;
 
 public class AttrCustomParam extends CompoundSchema {
-     public AttrCustomParam(String jsonSchema) throws IOException {
+    public AttrCustomParam(String jsonSchema) throws IOException {
         super(jsonSchema);
     }
 

@@ -16,7 +16,8 @@ public class SingleLineBoolean extends BpSchema {
             Boolean.valueOf(jsonContent);
             new SchemaValidatorResult(SchemaValidatorResult.SUCCESS);
         } catch (NumberFormatException e) {
-            return new SchemaValidatorResult(SchemaValidatorResult.FIELD_INVALID);
+            return new SchemaValidatorResult(SchemaValidatorResult.FIELD_INVALID, new StringBuilder(jsonContent)
+                    .append(": is not a boolean value - accept: true/false").toString());
         }
         return new SchemaValidatorResult(SchemaValidatorResult.FIELD_INVALID);
     }

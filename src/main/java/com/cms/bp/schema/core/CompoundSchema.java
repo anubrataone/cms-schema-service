@@ -30,7 +30,7 @@ public class CompoundSchema extends BpSchema {
             //Validate 3 steps:
             //1. Checked if any missing required node
             //2. Checked if provided node contain valida data
-            //3.
+            //3. ...
             JsonNode jsonDataNode = mapper.readTree(jsonContent);
 
             if (jsonDataNode instanceof ObjectNode) {
@@ -69,18 +69,22 @@ public class CompoundSchema extends BpSchema {
             if (keyValueElementSchemaNode.getValue().get(REQUIRED_NODE_NAME) != null &&
                     keyValueElementSchemaNode.getValue().get(REQUIRED_NODE_NAME).booleanValue() == true) {
                 if (foundDataNode == null) {
-                    invalidResultMsg.append("Missing Required Node - ")
-                            .append(keyValueElementSchemaNode.getKey())
-                            .append("\n");
+                    invalidResultMsg.append("\nMissing Required Node - ")
+                            .append(keyValueElementSchemaNode.getKey());
+                } else {
+                    validResultMsg.append("\n").append(keyValueElementSchemaNode.getKey())
+                            .append(" pass 'required' validation step");
                 }
             }
 
             if (keyValueElementSchemaNode.getValue().get(OCCURRENCE_NODE_NAME) != null &&
                     keyValueElementSchemaNode.getValue().get(OCCURRENCE_NODE_NAME).asText().equals("multiple")) {
-                if (!(foundDataNode.isArray())) {
-                    invalidResultMsg.append("Expected Array Node - ")
-                            .append(keyValueElementSchemaNode.getKey())
-                            .append("\n");
+                if (foundDataNode != null && !(foundDataNode.isArray())) {
+                    invalidResultMsg.append("\nExpected Array Node - ")
+                            .append(keyValueElementSchemaNode.getKey());
+                } else {
+                    validResultMsg.append("\n").append(keyValueElementSchemaNode.getKey())
+                            .append(":passed 'is array' validation step");
                 }
             }
 
@@ -88,15 +92,15 @@ public class CompoundSchema extends BpSchema {
                 BpSchema schemaByName = BpSchemaFactory.getInstance().getSchemaByName(
                         keyValueElementSchemaNode.getValue().get(TYPE_NODE_NAME).asText());
                 if (schemaByName == null) {
-                    invalidResultMsg.append("Schema name:").append(keyValueElementSchemaNode.getValue().get(TYPE_NODE_NAME).asText())
+                    invalidResultMsg.append("\nSchema name:").append(keyValueElementSchemaNode.getValue().get(TYPE_NODE_NAME).asText())
                             .append(" is not supported");
                     throw new NullPointerException(invalidResultMsg.toString());
                 }
                 SchemaValidatorResult validatorResult = schemaByName.validate(foundDataNode.toString());
                 if (SchemaValidatorResult.SUCCESS != validatorResult.getCode()) {
-                    invalidResultMsg.append(keyValueElementSchemaNode).append("Not valid at validation: ").append(validatorResult.getMsg());
+                    invalidResultMsg.append(keyValueElementSchemaNode).append("\nNot valid at validation: ").append(validatorResult.getMsg());
                 } else {
-                    validResultMsg.append("Valid - Node Name:").append(keyValueElementSchemaNode.getKey())
+                    validResultMsg.append("\nValid - Node Name:").append(keyValueElementSchemaNode.getKey())
                             .append(" - value:").append(foundDataNode.toString()).append(validatorResult.getMsg())
                             .append(" \n ");
                 }
@@ -104,7 +108,7 @@ public class CompoundSchema extends BpSchema {
 
         });
         if (invalidResultMsg.length() != 0) {
-            return new SchemaValidatorResult(SchemaValidatorResult.FIELD_INVALID, invalidResultMsg.toString());
+            return new SchemaValidatorResult(SchemaValidatorResult.FIELD_INVALID, invalidResultMsg.append(validResultMsg).toString());
         } else {
             return new SchemaValidatorResult(SchemaValidatorResult.SUCCESS, validResultMsg.toString());
         }

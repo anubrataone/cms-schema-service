@@ -16,7 +16,8 @@ public class SingleLineDouble extends BpSchema {
             Double.valueOf(jsonContent);
             new SchemaValidatorResult(SchemaValidatorResult.SUCCESS);
         } catch (NumberFormatException e) {
-            return new SchemaValidatorResult(SchemaValidatorResult.FIELD_INVALID);
+            return new SchemaValidatorResult(SchemaValidatorResult.FIELD_INVALID, new StringBuilder(jsonContent)
+                    .append(": is not a double number").toString());
         }
         return new SchemaValidatorResult(SchemaValidatorResult.FIELD_INVALID);
     }

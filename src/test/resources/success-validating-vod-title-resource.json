@@ -1,0 +1,94 @@
+{
+  "bpURN": "BPVODTitleV1",
+  "bpName": "VODTitle",
+  "bpVersion": 1,
+  "name": "vod title name",
+  "urn": "vod title urn",
+  "status": "PUBLISHED",
+  "externalId": "vod title external id",
+  "entityType": "movie",
+  "providerName": {
+    "id": "providerName id",
+    "collection": "provider"
+  },
+  "titleInfo": [{
+    "Title": "AttrLocalizedData",
+    "Description": "multiple",
+    "locale": "",
+    "extendedParams":[
+      {
+        "data":{
+          "key":"",
+          "value":""
+        }
+      }    ]
+  }],
+  "titleAssetId": "ddgdfgfgfdgsfgdfg",
+  "packageAssetId": "fgfdgfgfdgdfgsdfd",
+  "assetName": "dsfsdgdfgfdgsdgd",
+  "availibility": [
+    {
+      "licensingDate":{
+        "startDate":"",
+        "endDate":""
+      },
+      "subscription":"dfsddg",
+      "country":["dfdg","sdfsdfgdfg"]
+    }
+  ],
+  "releaseYear": "3013",
+  "genres": ["dfdg","sdfsdfgdfg"],
+  "categories": ["dfdg","sdfsdfgdfg"],
+  "ratings": ["dfdg","sdfsdfgdfg"],
+  "cast&crew":[
+    {
+      "person":{
+        "name":"asafsf",
+        "country":"",
+        "image":[
+          {
+            "url":"",
+            "state": "image state in person",
+            "streamType":"image"
+          }
+
+        ]
+
+      },
+      "role":"director",
+      "extendedParams":[
+        {
+          "data":{
+            "key":"",
+            "value":""
+          }
+        },
+        {
+          "data":{
+            "key":"",
+            "value":""
+          }
+        }
+      ]
+
+    }
+
+  ],
+  "image": [
+    {
+      "url":"",
+      "state": "image state",
+      "streamType":"image"
+    }
+
+  ],
+  "streamURL": [
+    {
+      "url":"",
+      "state": "stream state",
+      "streamType":"video"
+    }
+
+  ]
+
+}

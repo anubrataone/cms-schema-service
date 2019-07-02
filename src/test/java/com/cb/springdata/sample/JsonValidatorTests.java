@@ -20,6 +20,7 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 
 public class JsonValidatorTests {
@@ -34,7 +35,7 @@ public class JsonValidatorTests {
             paths
                     .filter(Files::isRegularFile)
                     .forEach(path -> {
-                        System.out.println(path);
+
                         try {
                             String content = new String(Files.readAllBytes(path));
                             String fileNameWithOutExt = FilenameUtils.removeExtension(path.getFileName().toString());
@@ -59,70 +60,63 @@ public class JsonValidatorTests {
 
     }
 
-    public static void main(String args[]) throws Exception {
-        try (Stream<Path> paths = Files.walk(Paths.get(new URI(JsonValidatorTests.class.getResource("/schemas").toString())))) {
-            paths
-                    .filter(Files::isRegularFile)
-                    .forEach(path -> {
-                        System.out.println(FilenameUtils.removeExtension(path.getFileName().toString()));
-                    });
-        }
-    }
-
     @Test
-    public void vodTitleTest() throws Exception {
-        BpSchema p = new CompoundSchema("bpVodTitle");
-
-        p.reloadSchemaDescriptor();
-        assertThat(p.validate("{\"numberTest\":\"ee\"}").getCode(), is(SchemaValidatorResult.FIELD_INVALID));
-        assertThat(p.validate("{\"numberTest\":\"3\"}").getCode(), is(SchemaValidatorResult.SUCCESS));
-        assertThat(p.validate("{\"numberTest\":3}").getCode(), is(SchemaValidatorResult.SUCCESS));
-
-    }
-
-    @Test
-    public void vodTitleTest2() throws IOException {
+    public void validateBpUrnPassRequired() throws IOException {
         String json = "{\n" +
-                "  \"BPURN\": \"BP URN Value Here\",\n" +
+                "  \"bpURN\": \"BP URN Value Here\",\n" +
                 "  \"BPName\": \"BP Name here\",\n" +
-                "  \"bpVersion\": 3\n" +
+                "  \"bpVersion\": \"EE\"\n" +
                 "}";
-        BpSchema p = new CompoundSchema("bpVodTitle");
+        BpSchema p = BpSchemaFactory.getInstance().getSchemaByName("VODTitle");
+        SchemaValidatorResult validateResult = p.validate(json);
 
-        p.reloadSchemaDescriptor();
-        assertThat(p.validate(json).getCode(), is(SchemaValidatorResult.SUCCESS));
+        assertThat(validateResult.getMsg().toString(), containsString("bpURN pass 'required' validation step"));
     }
 
     @Test
-    public void vodTitleTestExpectFailOnVersion() throws IOException {
+    public void validateMissingRequiredEntityType() throws IOException {
         String json = "{\n" +
-                "  \"BPURN\": \"BP URN Value Here\",\n" +
+                "  \"bpURN\": \"BP URN Value Here\",\n" +
                 "  \"BPName\": \"BP Name here\",\n" +
-                "  \"bpVersion\": \"ee\"\n" +
+                "  \"bpVersion\": \"EE\"\n" +
                 "}";
-        BpSchema p = new CompoundSchema("bpVodTitle");
+        BpSchema p = BpSchemaFactory.getInstance().getSchemaByName("VODTitle");
+        SchemaValidatorResult validateResult = p.validate(json);
 
-        p.reloadSchemaDescriptor();
-        assertThat(p.validate(json).getCode(), is(SchemaValidatorResult.FIELD_INVALID));
+        assertThat(validateResult.getMsg().toString(), containsString("Missing Required Node - entityType"));
     }
 
+
     @Test
-    public void attrResourceRefTest() throws IOException {
+    public void validateBpVersionIsNotANumber() throws IOException {
         String json = "{\n" +
-                "  \"BPURN\": \"BP URN Value Here\",\n" +
+                "  \"bpURN\": \"BP URN Value Here\",\n" +
                 "  \"BPName\": \"BP Name here\",\n" +
-                "  \"bpVersion\": \"ee\"\n" +
+                "  \"bpVersion\": \"EE\"\n" +
                 "}";
-        BpSchema p = new CompoundSchema("bpVodTitle");
+        BpSchema p = BpSchemaFactory.getInstance().getSchemaByName("VODTitle");
+        SchemaValidatorResult validateResult = p.validate(json);
 
-        p.reloadSchemaDescriptor();
-        assertThat(p.validate(json).getCode(), is(SchemaValidatorResult.FIELD_INVALID));
+        assertThat(validateResult.getMsg().toString(), containsString("\"EE\": is not a number"));
     }
 
     @Test
-    public void attrResourceRefTest2() throws IOException {
+    public void validateBpVersionIsANumber() throws IOException {
+        String json = "{\n" +
+                "  \"bpURN\": \"BP URN Value Here\",\n" +
+                "  \"BPName\": \"BP Name here\",\n" +
+                "  \"bpVersion\": \"1\"\n" +
+                "}";
+        BpSchema p = BpSchemaFactory.getInstance().getSchemaByName("VODTitle");
+        SchemaValidatorResult validateResult = p.validate(json);
+
+        assertThat(validateResult.getMsg().toString(), containsString("Valid - Node Name:bpVersion"));
+    }
+    //fail-on-image-validating-vod-title-resource.json
+    @Test
+    public void successValidatingVodTitleResource() throws IOException {
         InputStream in = JsonValidatorTests.class.getClassLoader().getResourceAsStream(
-                new StringBuilder("bpVodTitleResource.json").toString());
+                new StringBuilder("success-validating-vod-title-resource.json").toString());
 
         String jsonData = IOUtils.toString(in, "UTF-8");
         in.close();

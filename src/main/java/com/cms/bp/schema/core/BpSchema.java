@@ -3,33 +3,23 @@ package com.cms.bp.schema.core;
 import com.cms.bp.validator.SchemaValidatorResult;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.io.IOUtils;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.Serializable;
 
 public abstract class BpSchema implements Serializable {
 
 
+    public static final String REQUIRED_NODE_NAME = "required";
+    public static final String OCCURRENCE_NODE_NAME = "occurrence";
+    public static final String TYPE_NODE_NAME = "type";
+    public static final String ELEMENTS_NODE_NAME = "elements";
     public static ObjectMapper mapper = new ObjectMapper();
-    public static final String REQUIRED_NODE_NAME="required";
-    public static final String OCCURRENCE_NODE_NAME="occurrence";
-    public static final String TYPE_NODE_NAME="type";
-    public static final String ELEMENTS_NODE_NAME="elements";
-
-    private File schemaFile;
     private String schemaJson;
     private JsonNode schemaJsonNode;
 
-    public BpSchema(File schemaFile) {
-        this.schemaFile = schemaFile;
-    }
-
     public BpSchema(String schemaJsonStr) throws IOException {
         reloadSchemaDescriptor(schemaJsonStr);
-    }
-
-    public File getSchemaFile() {
-        return schemaFile;
     }
 
     public String getSchemaJson() {
@@ -46,27 +36,6 @@ public abstract class BpSchema implements Serializable {
 
     public void setSchemaJsonNode(JsonNode schemaJsonNode) {
         this.schemaJsonNode = schemaJsonNode;
-    }
-
-    public void reloadSchemaDescriptor() {
-
-        InputStream in = null;
-        try {
-
-            String schemaJsonData = IOUtils.toString(new FileInputStream(schemaFile), "UTF-8");
-
-            reloadSchemaDescriptor(schemaJsonData);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
     }
 
     public void reloadSchemaDescriptor(String schemaJsonStr) throws IOException {

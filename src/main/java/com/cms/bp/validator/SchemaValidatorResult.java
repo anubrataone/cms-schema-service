@@ -34,4 +34,12 @@ public class SchemaValidatorResult implements Serializable {
     public void setCode(int code) {
         this.code = code;
     }
+
+    @Override
+    public String toString() {
+        return "SchemaValidatorResult{" +
+                "msg=" + msg +
+                ", code=" + code +
+                '}';
+    }
 }
